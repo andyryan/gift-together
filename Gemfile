@@ -32,6 +32,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rubocop'
+gem 'rubocop-rspec'
+
+gem 'pry-rails'
+gem 'pry-byebug'
+gem 'pry-stack_explorer'
+
+gem 'awesome_print'
+
+gem 'stripe'
+gem 'stripe_event'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -45,6 +57,12 @@ group :development do
   gem 'spring'
 end
 
-group :test do
-  gem 'rspec'
+group :development, :test, :ci do
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'timecop'
+  gem 'stripe-ruby-mock', require: 'stripe_mock'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'guard'
+  gem 'guard-rspec', require: false
 end
